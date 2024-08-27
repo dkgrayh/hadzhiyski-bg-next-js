@@ -282,19 +282,19 @@ export default async function Home() {
             ticketing, engagement and interaction.
           </p>
           <div className="mt-6 flex gap-6">
-            <SocialLink href="#" aria-label="Follow on X" icon={XIcon} />
+            {/* <SocialLink href="#" aria-label="Follow on X" icon={XIcon} />
             <SocialLink
               href="#"
               aria-label="Follow on Instagram"
               icon={InstagramIcon}
-            />
+            /> */}
             <SocialLink
-              href="#"
+              href="https://github.com/dkgrayh"
               aria-label="Follow on GitHub"
               icon={GitHubIcon}
             />
             <SocialLink
-              href="#"
+              href="https://www.linkedin.com/in/nikolay-hadzhiyski/"
               aria-label="Follow on LinkedIn"
               icon={LinkedInIcon}
             />

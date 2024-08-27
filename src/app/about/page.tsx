@@ -10,7 +10,8 @@ import {
   LinkedInIcon,
   XIcon,
 } from '@/components/SocialIcons'
-import portraitImage from '@/images/portrait.jpg'
+import portraitImage from '@/images/portraitAboutMe.jpeg'
+import { HtmlTags } from '@/components/HtmlTags'
 
 function SocialLink({
   className,
@@ -56,7 +57,7 @@ export const metadata: Metadata = {
 export default function About() {
   return (
     <Container className="mt-16 sm:mt-32">
-      <div className="grid grid-cols-1 gap-y-16 lg:grid-cols-2 lg:grid-rows-[auto_1fr] lg:gap-y-12">
+      <HtmlTags className="grid grid-cols-1 gap-y-16 lg:grid-cols-2 lg:grid-rows-[auto_1fr] lg:gap-y-12">
         <div className="lg:pl-20">
           <div className="max-w-xs px-2.5 lg:max-w-none">
             <Image
@@ -68,63 +69,72 @@ export default function About() {
           </div>
         </div>
         <div className="lg:order-first lg:row-span-2">
-          <h1 className="text-4xl font-bold tracking-tight text-zinc-800 sm:text-5xl dark:text-zinc-100">
-            I’m Spencer Sharp. I live in New York City, where I design the
-            future.
-          </h1>
-          <div className="mt-6 space-y-7 text-base text-zinc-600 dark:text-zinc-400">
-            <p>
-              I’ve loved making things for as long as I can remember, and wrote
-              my first program when I was 6 years old, just two weeks after my
-              mom brought home the brand new Macintosh LC 550 that I taught
-              myself to type on.
-            </p>
-            <p>
-              The only thing I loved more than computers as a kid was space.
-              When I was 8, I climbed the 40-foot oak tree at the back of our
-              yard while wearing my older sister’s motorcycle helmet, counted
-              down from three, and jumped — hoping the tree was tall enough that
-              with just a bit of momentum I’d be able to get to orbit.
-            </p>
-            <p>
-              I spent the next few summers indoors working on a rocket design,
-              while I recovered from the multiple surgeries it took to fix my
-              badly broken legs. It took nine iterations, but when I was 15 I
-              sent my dad’s Blackberry into orbit and was able to transmit a
-              photo back down to our family computer from space.
-            </p>
-            <p>
-              Today, I’m the founder of Planetaria, where we’re working on
-              civilian space suits and manned shuttle kits you can assemble at
-              home so that the next generation of kids really <em>can</em> make
-              it to orbit — from the comfort of their own backyards.
-            </p>
+          <HtmlTags.TitleH1>
+            I’m Nikolay Hadzhiyski. I strive for Engineering Excellence in code
+            and 3D design.
+          </HtmlTags.TitleH1>
+          <div className="mt-6 space-y-7">
+            <HtmlTags.Description>
+              I am a mechanical engineer, I graduated from Sofia Technical
+              University. I have worked in the specialty both in Bulgaria and in
+              Germany.
+            </HtmlTags.Description>
+            <HtmlTags.Description>
+              I started doing 3D out of curiosity, but as it happens I liked it
+              and I have quite a few projects done which I will also share with
+              you on my app.
+            </HtmlTags.Description>
+            <HtmlTags.Description>
+              In order to be able to use engineering and my love for 3D design,
+              I decided that I needed to take the next step forward and started
+              a course at{' '}
+              <Link
+                className="text-teal-500"
+                href="https://www.telerikacademy.com/"
+              >
+                Telerik Academy Sofia
+              </Link>{' '}
+              specializing in JavaScript programming.
+            </HtmlTags.Description>
+            <HtmlTags.Description>
+              In this app I will describe the projects and the technologies I
+              used to make them, as well as parts of the code that I think I
+              will share with each of you. I want to show the knowledge I have.
+            </HtmlTags.Description>
           </div>
         </div>
         <div className="lg:pl-20">
           <ul role="list">
-            <SocialLink href="#" icon={XIcon}>
+            {/* <SocialLink href="#" icon={XIcon}>
               Follow on X
             </SocialLink>
             <SocialLink href="#" icon={InstagramIcon} className="mt-4">
               Follow on Instagram
-            </SocialLink>
-            <SocialLink href="#" icon={GitHubIcon} className="mt-4">
+            </SocialLink> */}
+            <SocialLink
+              href="https://github.com/dkgrayh"
+              icon={GitHubIcon}
+              className="mt-4"
+            >
               Follow on GitHub
             </SocialLink>
-            <SocialLink href="#" icon={LinkedInIcon} className="mt-4">
+            <SocialLink
+              href="https://www.linkedin.com/in/nikolay-hadzhiyski/"
+              icon={LinkedInIcon}
+              className="mt-4"
+            >
               Follow on LinkedIn
             </SocialLink>
             <SocialLink
-              href="mailto:spencer@planetaria.tech"
+              href="https://mail.google.com/mail/nikolay.hadzhiyski/"
               icon={MailIcon}
               className="mt-8 border-t border-zinc-100 pt-8 dark:border-zinc-700/40"
             >
-              spencer@planetaria.tech
+              nikolay.hadzhiyski@gmail.com
             </SocialLink>
           </ul>
         </div>
-      </div>
+      </HtmlTags>
     </Container>
   )
 }

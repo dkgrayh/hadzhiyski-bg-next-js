@@ -1,6 +1,11 @@
-/** @type {import('prettier').Options} */
 module.exports = {
+  semi: true,
+  trailingComma: 'es5',
   singleQuote: true,
-  semi: false,
-  plugins: ['prettier-plugin-tailwindcss'],
+  printWidth: 80,
+  tabWidth: 2,
+  useTabs: false,
+  bracketSpacing: true,
+  jsxBracketSameLine: false,
+  arrowParens: 'always',
 }
