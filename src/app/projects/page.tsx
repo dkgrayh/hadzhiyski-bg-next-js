@@ -1,51 +1,62 @@
-import { type Metadata } from 'next'
-import Image from 'next/image'
+import { type Metadata } from 'next';
+import Image from 'next/image';
 
-import { Card } from '@/components/Card'
-import { SimpleLayout } from '@/components/SimpleLayout'
-import logoAnimaginary from '@/images/logos/animaginary.svg'
-import logoCosmos from '@/images/logos/cosmos.svg'
-import logoHelioStream from '@/images/logos/helio-stream.svg'
-import logoOpenShuttle from '@/images/logos/open-shuttle.svg'
-import logoPlanetaria from '@/images/logos/planetaria.svg'
+import { Card } from '@/components/Card';
+import { SimpleLayout } from '@/components/SimpleLayout';
+import logoChicagoBoatParties from '@/images/favicon.ico';
+
+import logoBoatEvents from '@/images/logos/planetaria.svg';
+import logoTelerik from '@/images/Telerik logo.jpg';
 
 const projects = [
   {
-    name: 'Planetaria',
+    name: 'BoatEvents',
     description:
-      'Creating technology to empower civilians to explore space on their own terms.',
-    link: { href: 'http://planetaria.tech', label: 'planetaria.tech' },
-    logo: logoPlanetaria,
+      'Application for creating and offering event events on boats anywhere in the world.',
+    link: { href: '', label: 'boat-events' },
+    logo: logoBoatEvents,
   },
   {
-    name: 'Animaginary',
+    name: 'ChicagoBoatParties',
     description:
-      'High performance web animation library, hand-written in optimized WASM.',
-    link: { href: '#', label: 'github.com' },
-    logo: logoAnimaginary,
+      'Application for creating and offering boating events, located in Chicago.',
+    link: {
+      href: 'https://chicagoboatparties.us/',
+      label: 'chicagoboatparties',
+    },
+    logo: logoChicagoBoatParties,
   },
   {
-    name: 'HelioStream',
+    name: 'Collaboration Messenger',
     description:
-      'Real-time video streaming library, optimized for interstellar transmission.',
-    link: { href: '#', label: 'github.com' },
-    logo: logoHelioStream,
+      'The Collaboration Messenger app offers advanced real-time communication and convenient communication.',
+    link: {
+      href: 'https://github.com/telerik-group-14/collab-messenger-app',
+      label: 'github.com',
+    },
+    logo: logoTelerik,
   },
   {
-    name: 'cosmOS',
+    name: 'Forum Management System',
     description:
-      'The operating system that powers our Planetaria space shuttles.',
-    link: { href: '#', label: 'github.com' },
-    logo: logoCosmos,
+      'The Travel Forum app offers a place to share experiences of visiting different destinations around the world.',
+    link: {
+      href: 'https://github.com/Giphy-Project-Buddy-Group-14/React-Project--forum',
+      label: 'github.com',
+    },
+    logo: logoTelerik,
   },
   {
-    name: 'OpenShuttle',
+    name: 'Giphy',
     description:
-      'The schematics for the first rocket I designed that successfully made it to orbit.',
-    link: { href: '#', label: 'github.com' },
-    logo: logoOpenShuttle,
+      "Design and implement a GIF's SPA application for searching and sharing funny GIFs.",
+    link: {
+      href: 'https://github.com/Giphy-Project-Buddy-Group-14/Giphy',
+      label: 'github.com',
+    },
+    logo: logoTelerik,
   },
-]
+];
 
 function LinkIcon(props: React.ComponentPropsWithoutRef<'svg'>) {
   return (
@@ -55,13 +66,13 @@ function LinkIcon(props: React.ComponentPropsWithoutRef<'svg'>) {
         fill="currentColor"
       />
     </svg>
-  )
+  );
 }
 
 export const metadata: Metadata = {
   title: 'Projects',
   description: 'Things I’ve made trying to put my dent in the universe.',
-}
+};
 
 export default function Projects() {
   return (
@@ -79,12 +90,14 @@ export default function Projects() {
               <Image
                 src={project.logo}
                 alt=""
-                className="h-8 w-8"
+                className="h-10 w-10 object-cover"
                 unoptimized
               />
             </div>
             <h2 className="mt-6 text-base font-semibold text-zinc-800 dark:text-zinc-100">
-              <Card.Link href={project.link.href}>{project.name}</Card.Link>
+              <Card.Link href={project.link.href} target="_blank">
+                {project.name}
+              </Card.Link>
             </h2>
             <Card.Description>{project.description}</Card.Description>
             <p className="relative z-10 mt-6 flex text-sm font-medium text-zinc-400 transition group-hover:text-teal-500 dark:text-zinc-200">
@@ -95,5 +108,5 @@ export default function Projects() {
         ))}
       </ul>
     </SimpleLayout>
-  )
+  );
 }
