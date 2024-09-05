@@ -19,11 +19,13 @@ export default (props) => <ArticleLayout article={article} {...props} />;
 
 This article dives into the design process behind creating a user-friendly system for adding and discovering events in an event management app. We'll cover key aspects like form design for event creation, intuitive search and filtering for event discovery, and ensuring a consistent user experience through reusable components.
 
+Our application is built using React, a powerful JavaScript library for building user interfaces. React allows us to create dynamic, component-based UIs that enhance the user experience. With React Router, we handle navigation and routing, enabling smooth transitions between different paths and pages within the app. This ensures a fast, seamless experience, where users can interact with various sections of the application without needing to reload the page.
+
 <Image src={designSystem} alt="" />
 
 ## Explanation
 
-This code snippet demonstrates how to use Framer Motion's motion.div to create a responsive, animated layout in a React component. The outer motion.div adjusts its height based on the expanded state, smoothly expanding or collapsing between auto and 0.5rem. It includes several child components, including a Header, Navigation, and various layout elements within another motion.div that also supports layout animations. The layout changes are animated using the layout prop, ensuring smooth transitions as the component's structure changes. Additionally, accessibility is considered with aria-hidden to manage visibility for screen readers based on the expanded state.
+This code snippet demonstrates how to use <a target='_blank' href='https://www.framer.com/'>Framer</a> Motion's motion.div to create a responsive, animated layout in a React component. The outer motion.div adjusts its height based on the expanded state, smoothly expanding or collapsing between auto and 0.5rem. It includes several child components, including a Header, Navigation, and various layout elements within another motion.div that also supports layout animations. The layout changes are animated using the layout prop, ensuring smooth transitions as the component's structure changes. Additionally, accessibility is considered with aria-hidden to manage visibility for screen readers based on the expanded state.
 
 ```c
 <motion.div
