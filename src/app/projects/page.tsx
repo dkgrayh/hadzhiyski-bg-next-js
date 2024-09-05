@@ -5,7 +5,7 @@ import { Card } from '@/components/Card';
 import { SimpleLayout } from '@/components/SimpleLayout';
 import logoChicagoBoatParties from '@/images/favicon.ico';
 
-import logoBoatEvents from '@/images/logos/planetaria.svg';
+import logoBoatEvents from '@/images/favicon.svg';
 import logoTelerik from '@/images/Telerik logo.jpg';
 
 const projects = [

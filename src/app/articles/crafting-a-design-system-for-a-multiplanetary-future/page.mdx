@@ -1,90 +1,187 @@
-import { ArticleLayout } from '@/components/ArticleLayout'
-import designSystem from './planetaria-design-system.png'
+import { ArticleLayout } from '@/components/ArticleLayout';
+import designSystem from './Screenshot 2024-09-05 at 17.23.35.png';
 
 export const article = {
-  author: 'Adam Wathan',
-  date: '2022-09-05',
-  title: 'Crafting a design system for a multiplanetary future',
+  author: 'Nikolay Hadzhiyski',
+  date: '2024-09-05',
+  title:
+    'Creating a user-friendly system for adding and discovering events in an event management app',
   description:
-    'Most companies try to stay ahead of the curve when it comes to visual design, but for Planetaria we needed to create a brand that would still inspire us 100 years from now when humanity has spread across our entire solar system.',
-}
+    'Learn how to design a system that not only looks great but also enhances functionality, making it easy for users to add and find events effortlessly.',
+};
 
 export const metadata = {
   title: article.title,
   description: article.description,
-}
+};
 
-export default (props) => <ArticleLayout article={article} {...props} />
+export default (props) => <ArticleLayout article={article} {...props} />;
 
-Most companies try to stay ahead of the curve when it comes to visual design, but for Planetaria we needed to create a brand that would still inspire us 100 years from now when humanity has spread across our entire solar system.
+This article dives into the design process behind creating a user-friendly system for adding and discovering events in an event management app. We'll cover key aspects like form design for event creation, intuitive search and filtering for event discovery, and ensuring a consistent user experience through reusable components.
 
 <Image src={designSystem} alt="" />
 
-I knew that to get it right I was going to have to replicate the viewing conditions of someone from the future, so I grabbed my space helmet from the closet, created a new Figma document, and got to work.
+## Explanation
 
-## Sermone fata
-
-Lorem markdownum, bracchia in redibam! Terque unda puppi nec, linguae posterior
-in utraque respicere candidus Mimasque formae; quae conantem cervice. Parcite
-variatus, redolentia adeunt. Tyrioque dies, naufraga sua adit partibus celanda
-torquere temptata, erit maneat et ramos, [iam](#) ait dominari
-potitus! Tibi litora matremque fumantia condi radicibus opusque.
-
-Deus feram verumque, fecit, ira tamen, terras per alienae victum. Mutantur
-levitate quas ubi arcum ripas oculos abest. Adest [commissaque
-victae](#) in gemitus nectareis ire diva
-dotibus ora, et findi huic invenit; fatis? Fractaque dare superinposita
-nimiumque simulatoremque sanguine, at voce aestibus diu! Quid veterum hausit tu
-nil utinam paternos ima, commentaque.
+This code snippet demonstrates how to use Framer Motion's motion.div to create a responsive, animated layout in a React component. The outer motion.div adjusts its height based on the expanded state, smoothly expanding or collapsing between auto and 0.5rem. It includes several child components, including a Header, Navigation, and various layout elements within another motion.div that also supports layout animations. The layout changes are animated using the layout prop, ensuring smooth transitions as the component's structure changes. Additionally, accessibility is considered with aria-hidden to manage visibility for screen readers based on the expanded state.
 
 ```c
-exbibyte_wins = gigahertz(3);
-grayscaleUtilityClient = control_uat;
-pcmciaHibernate = oop_virus_console(text_mountain);
-if (stateWaisFirewire >= -2) {
-    jfs = 647065 / ldapVrml(tutorialRestore, 85);
-    metal_runtime_parse = roomComputingResolution - toolbarUpload +
-            ipx_nvram_open;
-} else {
-    maximizeSidebar *= suffix_url(flatbed + 2, requirements_encoding_node +
-            only_qbe_media, minicomputer);
-}
+<motion.div
+          layout
+          id={panelId}
+          style={{ height: expanded ? 'auto' : '0.5rem' }}
+          className="relative z-50 overflow-hidden bg-neutral-950 pt-2"
+          aria-hidden={expanded ? undefined : 'true'}
+          // inert={expanded ? undefined : ''}
+        >
+          <motion.div layout className="bg-neutral-800">
+            <div ref={navRef} className="bg-neutral-950 pb-16 pt-14">
+              <Header
+                invert
+                panelId={panelId}
+                icon={XIcon}
+                toggleRef={closeRef}
+                expanded={expanded}
+                onToggle={() => {
+                  setExpanded((expanded) => !expanded);
+                  window.setTimeout(() =>
+                    openRef.current?.focus({ preventScroll: true })
+                  );
+                }}
+              />
+            </div>
+            <Navigation />
+            <div className="relative bg-neutral-950 before:absolute before:inset-x-0 before:top-0 before:h-px before:bg-neutral-800">
+              <Container>
+                <div className="items-center grid grid-cols-1 gap-y-10 pb-16 pt-10 sm:grid-cols-2 sm:pt-16">
+                  <div>
+                    <AuthButton />
+                  </div>
+                  <div className="sm:border-l sm:border-transparent sm:pl-16">
+                    <h2 className="font-display text-base font-semibold text-white">
+                      Follow us
+                    </h2>
+                    <SocialMedia className="mt-6" invert />
+                  </div>
+                </div>
+              </Container>
+            </div>
+          </motion.div>
+        </motion.div>
 ```
 
-Aere repetiti cognataque natus. Habebat vela solutis saepe munus nondum adhuc
-oscula nomina pignora corpus deserat.
+## File Upload Management with Resource Update Integration
 
-## Lethaei Pindumve me quae dinumerat Pavor
+The useFileUploadHandler hook facilitates file uploads and resource updates. It utilizes the useFileUpload custom hook for handling file uploads and manages the state for the current image URL and upload status. Key functionalities include:
 
-Idem se saxa fata pollentibus geminos; quos pedibus. Est urnis Herses omnes nec
-divite: et ille illa furit sim verbis Cyllenius.
+File Upload: Handles file selection via input change events and drag-and-drop
+events.
 
-1. Captus inpleverunt collo
-2. Nec nam placebant
-3. Siquos vulgus
-4. Dictis carissime fugae
-5. A tacitos nulla viginti
+Update Resource: Updates the resource with the uploaded file's URL and provides
+feedback via toast notifications.
 
-Ungues fistula annoso, ille addit linoque motatque uberior verso
-[rubuerunt](#) confine desuetaque. _Sanguine_ anteit
-emerguntque expugnacior est pennas iniqui ecce **haeret** genus: peiora imagine
-fossas Cephisos formosa! Refugitque amata [refelli](#)
-supplex. Summa brevis vetuere tenebas, hostes vetantis, suppressit, arreptum
-regna. Postquam conpescit iuvenis habet corpus, et erratica, perdere, tot mota
-ars talis.
+State Management: Manages and updates the current image URL, handles loading and
+error states, and ensures the resource is updated only once per upload.
+
+The hook returns functions to handle file changes and drag-and-drop events, as well as the current image URL, loading, and error states.
+Here's how it works:
+
+1. State Management:
+   currentImageUrl: Holds the URL of the currently uploaded image.
+   hasUpdated: Tracks whether the resource has been updated with the new image URL.
+
+2. File Handling: handleFileChange: Handles file input changes, initiating the upload process when a file is selected.
+   handleDragOver and handleDrop: Manage drag-and-drop file uploads by preventing default behavior and processing the dropped file.
+
+3. Upload and Update: uploadFile: Invoked from the useFileUpload hook to handle the actual file upload.
+   updateResource: Updates the resource with the new image URL and provides user feedback through toast notifications. It is only called once when a file is uploaded and not yet updated.
+
+4. Effect Hooks: useEffect for Upload: Monitors changes to uploadedFilePath and updates the resource when a file is successfully uploaded.
+   useEffect for Initial Image: Resets the currentImageUrl to the initial value when the component mounts or initialImageUrl changes.
+
+5. Feedback and Error Handling: Utilizes toast for success and error notifications to inform the user of the upload and update status.
+
+This hook is ideal for components that need to handle file uploads, provide feedback to users, and update associated resources based on the uploaded files.
 
 ```c
-digital.webcam_dual_frequency = webmasterMms;
-if (5 + language_standalone_google) {
-    cc_inbox_layout *= file_character;
-    task += p;
-    lockUnicode += enterprise_monochrome(tokenFunctionPersonal, keyVirtual,
-            adf);
-}
-windows_binary_esports(87734, array(restoreRomTopology, adRaw(407314),
-        dongleBashThumbnail), interpreter);
+import { useEffect } from 'react';
+import { toast } from 'sonner';
+import { useState, useCallback } from 'react';
+import useFileUpload from './useFileUpload';
+
+type UploadHandlerProps = {
+  updateFunction: (imageUrl: string) => Promise<void>;
+  initialImageUrl?: string | null;
+};
+
+const useFileUploadHandler = ({
+  updateFunction,
+  initialImageUrl = null,
+}: UploadHandlerProps) => {
+  const { uploadFile, uploadedFilePath, loading, error } = useFileUpload();
+  const [currentImageUrl, setCurrentImageUrl] = useState<string | null>(
+    initialImageUrl
+  );
+  const [hasUpdated, setHasUpdated] = useState<boolean>(false);
+
+  const updateResource = useCallback(
+    async (imageUrl: string) => {
+      try {
+        await updateFunction(imageUrl);
+        toast.success('Resource updated successfully!');
+      } catch (error) {
+        console.error('Error updating resource:', error);
+        toast.error('An error occurred while updating the resource.');
+      }
+    },
+    [updateFunction]
+  );
+
+  useEffect(() => {
+    if (uploadedFilePath && !hasUpdated) {
+      updateResource(uploadedFilePath);
+      setCurrentImageUrl(uploadedFilePath);
+      setHasUpdated(true);
+    }
+  }, [uploadedFilePath, updateResource, hasUpdated]);
+
+  useEffect(() => {
+    setCurrentImageUrl(initialImageUrl);
+  }, [initialImageUrl]);
+
+  const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const file = event.target.files?.[0];
+    if (file) {
+      setHasUpdated(false);
+      uploadFile(file);
+    }
+  };
+
+  const handleDragOver = (event: React.DragEvent<HTMLDivElement>) => {
+    event.preventDefault();
+  };
+
+  const handleDrop = (event: React.DragEvent<HTMLDivElement>) => {
+    event.preventDefault();
+    const file = event.dataTransfer.files[0];
+    if (file) {
+      setHasUpdated(false);
+      uploadFile(file);
+    }
+  };
+
+  return {
+    currentImageUrl,
+    handleFileChange,
+    handleDragOver,
+    handleDrop,
+    loading,
+    error,
+  };
+};
+
+export default useFileUploadHandler;
+
 ```
 
-Sit volat naturam; motu Cancri. Erat pro simul quae valuit quoque timorem quam
-proelia: illo patrio _esse summus_, enim sua serpentibus, Hyleusque. Est coniuge
-recuso; refert Coroniden ignotos manat, adfectu.
+The useFileUploadHandler hook simplifies the process of managing file uploads and updating associated resources in your React application. By handling file input changes, drag-and-drop events, and integrating with upload and update logic, it provides a seamless user experience. With built-in state management and feedback mechanisms, this hook ensures efficient file handling and resource updates, making it a valuable addition to your toolkit for dynamic file management.

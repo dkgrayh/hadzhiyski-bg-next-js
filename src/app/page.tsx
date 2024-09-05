@@ -13,7 +13,7 @@ import {
 } from '@/components/SocialIcons';
 import logoChicagoBoatParties from '@/images/favicon.ico';
 import logoCinema4D from '@/images/pngegg.png';
-import logoBoatEvents from '@/images/logos/planetaria.svg';
+import logoBoatEvents from '@/images/favicon.svg';
 import logoTelerik from '@/images/Telerik logo.jpg';
 import image1 from '@/images/photos/Screenshot 2024-09-04 at 13.31.23.png';
 import image3 from '@/images/photos/Screenshot 2024-09-04 at 12.47.52.png';
@@ -257,16 +257,12 @@ function Resume() {
           <Role key={roleIndex} role={role} />
         ))}
       </ol>
-
-      <Button
-        href="https://app.enhancv.com/share/c52368bd/?utm_medium=growth&utm_campaign=share-resume&utm_source=dynamic"
-        target="_blank"
-        variant="secondary"
-        className="group mt-6 w-full"
-      >
-        Download CV
-        <ArrowDownIcon className="h-4 w-4 stroke-zinc-400 transition group-active:stroke-zinc-600 dark:group-hover:stroke-zinc-50 dark:group-active:stroke-zinc-50" />
-      </Button>
+      <a href="/cv.pdf" target="_blank">
+        <Button variant="secondary" className="group mt-6 w-full">
+          Download CV
+          <ArrowDownIcon className="h-4 w-4 stroke-zinc-400 transition group-active:stroke-zinc-600 dark:group-hover:stroke-zinc-50 dark:group-active:stroke-zinc-50" />
+        </Button>
+      </a>
     </div>
   );
 }
