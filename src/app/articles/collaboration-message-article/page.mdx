@@ -1,0 +1,128 @@
+import { ArticleLayout } from '@/components/ArticleLayout';
+import designCollab from './Screenshot 2024-09-06 at 12.46.58.png';
+
+export const article = {
+  author: 'Adam Wathan',
+  date: '2024-01-11',
+  title: 'Collaboration message, Final project at Telerik Academy',
+  description:
+    'Collaboration Message is a final project from Telerik Academy built with React, providing a real-time messaging and collaboration platform that showcases advanced frontend skills and seamless user experience.',
+};
+
+export const metadata = {
+  title: article.title,
+  description: article.description,
+};
+
+export default (props) => <ArticleLayout article={article} {...props} />;
+
+The Collaboration message is a final project developed at <a href='https://www.telerikacademy.com/' target='_blank'>Telerik Academy</a> using React. This web application enables users to communicate and collaborate effectively through real-time messaging, group discussions, and file sharing. Built with React for a dynamic and responsive user experience, the project showcases advanced frontend skills, including state management, component-based architecture, and seamless integration with APIs. It serves as a practical solution for team collaboration, highlighting the culmination of skills acquired during the Telerik Academy program.
+
+<Image src={designCollab} alt="" />
+
+This custom React hook, useRealtimeFirebaseData, allows you to fetch and listen to real-time data from Firebase Realtime Database. Here's a breakdown of how it works:
+
+```rust
+import { useEffect, useState } from 'react';
+import { getDatabase, ref, onValue, off } from 'firebase/database';
+
+export default function useRealtimeFirebaseData(path) {
+  const [data, setData] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    if (!path) {
+      setData([]);
+      setLoading(false);
+      setError(null);
+      return;
+    }
+
+    const dbRef = ref(getDatabase(), path);
+
+    const handleData = (snapshot) => {
+      if (snapshot.exists()) {
+        let realtimeData = snapshot.val();
+
+        if (
+          realtimeData &&
+          typeof realtimeData === 'object' &&
+          !Array.isArray(realtimeData)
+        ) {
+          realtimeData = Object.keys(realtimeData).map((key) => ({
+            id: key,
+            ...realtimeData[key],
+          }));
+        }
+
+        setData(realtimeData);
+      } else {
+        setData([]);
+      }
+      setLoading(false);
+    };
+
+    const handleError = (error) => {
+      console.error('Error fetching profile: ', error);
+      setError(error);
+      setLoading(false);
+    };
+
+    onValue(dbRef, handleData, handleError);
+
+    return () => off(dbRef);
+  }, [path]);
+
+  return { data, loading, error };
+}
+
+```
+
+## Key Features:
+
+1. State Management:
+   data: Holds the fetched data.
+   loading: Tracks whether data is still being fetched.
+   error: Holds any error that occurs during data fetching.
+
+2. useEffect Hook:
+   Listens to changes in <a href="https://firebase.google.com/" target="_blank">Firebase</a> Realtime Database when a path is provided.
+   If the path is invalid or empty, it resets the data, loading state, and error.
+   A Firebase reference is created with ref(getDatabase(), path) and the onValue listener is set to handle incoming real-time updates from Firebase.
+
+3. Data Transformation:
+   If the fetched data is an object and not an array, the data is transformed into an array of objects, with each entry given an id corresponding to its Firebase key.
+
+4. Error Handling:
+   If there’s an issue fetching the data, the error is caught, logged, and stored in state.
+
+5. Cleanup:
+   The off() method is called when the component using this hook is unmounted or the path changes, removing the Firebase listener to prevent memory leaks.
+
+## Usage Example:
+
+```c
+import useRealtimeFirebaseData from './useRealtimeFirebaseData';
+
+function MyComponent() {
+  const { data, loading, error } = useRealtimeFirebaseData('/my/path');
+
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p>Error loading data</p>;
+
+  return (
+    <ul>
+      {data.map((item) => (
+        <li key={item.id}>{item.name}</li>
+      ))}
+    </ul>
+  );
+}
+
+```
+
+## When to Use:
+
+When you need to continuously sync data from Firebase Realtime Database in real-time.
+For applications where data changes frequently and needs to be reflected immediately in the UI.
