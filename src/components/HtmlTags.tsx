@@ -1,15 +1,15 @@
-import clsx from 'clsx'
-import Link from 'next/link'
+import clsx from 'clsx';
+import Link from 'next/link';
 
 export function HtmlTags<T extends React.ElementType = 'div'>({
   as,
   className,
   children,
 }: Omit<React.ComponentPropsWithoutRef<T>, 'as' | 'className'> & {
-  as?: T
-  className?: string
+  as?: T;
+  className?: string;
 }) {
-  let Component = as ?? 'div'
+  const Component = as ?? 'div';
 
   return (
     <Component
@@ -17,7 +17,7 @@ export function HtmlTags<T extends React.ElementType = 'div'>({
     >
       {children}
     </Component>
-  )
+  );
 }
 
 HtmlTags.Link = function HtmlTagsLink({
@@ -32,8 +32,8 @@ HtmlTags.Link = function HtmlTagsLink({
         <span className="relative z-10">{children}</span>
       </Link>
     </>
-  )
-}
+  );
+};
 
 HtmlTags.TitleLink = function HtmlTagsTitleLink<
   T extends React.ElementType = 'h2',
@@ -42,36 +42,36 @@ HtmlTags.TitleLink = function HtmlTagsTitleLink<
   href,
   children,
 }: Omit<React.ComponentPropsWithoutRef<T>, 'as' | 'href'> & {
-  as?: T
-  href?: string
+  as?: T;
+  href?: string;
 }) {
-  let Component = as ?? 'h2'
+  const Component = as ?? 'h2';
 
   return (
     <Component className="text-base font-semibold tracking-tight text-zinc-800 dark:text-zinc-100">
       {href ? <HtmlTags.Link href={href}>{children}</HtmlTags.Link> : children}
     </Component>
-  )
-}
+  );
+};
 
 HtmlTags.TitleH1 = function HtmlTagsTitleH1<
   T extends React.ElementType = 'h1',
->({ as, children }: Omit<React.ComponentPropsWithRef<T>, 'as'> & { as?: T }) {
+>({ children }: Omit<React.ComponentPropsWithRef<T>, 'as'> & { as?: T }) {
   return (
     <h1 className="text-4xl font-bold tracking-tight text-zinc-800 sm:text-5xl dark:text-zinc-100">
       {children}
     </h1>
-  )
-}
+  );
+};
 
 HtmlTags.Description = function HtmlTagsDescription({
   children,
 }: {
-  children: React.ReactNode
+  children: React.ReactNode;
 }) {
   return (
     <p className="relative z-10 mt-2 text-base text-zinc-600 dark:text-zinc-400">
       {children}
     </p>
-  )
-}
+  );
+};

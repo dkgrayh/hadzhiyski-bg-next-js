@@ -6,9 +6,9 @@ import clsx from 'clsx';
 import { Container } from '@/components/Container';
 import {
   GitHubIcon,
-  InstagramIcon,
+  // InstagramIcon,
   LinkedInIcon,
-  XIcon,
+  // XIcon,
 } from '@/components/SocialIcons';
 import portraitImage from '@/images/portraitAboutMe.jpeg';
 import { HtmlTags } from '@/components/HtmlTags';
