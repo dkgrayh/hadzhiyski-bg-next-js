@@ -51,7 +51,7 @@ const projects = [
     description:
       "Design and implement a GIF's SPA application for searching and sharing funny GIFs.",
     link: {
-      href: 'https://github.com/Giphy-Project-Buddy-Group-14/Giphy',
+      href: 'https://github.com/dkgrayh/Giphy-firstWebProject',
       label: 'github.com',
     },
     logo: logoTelerik,
