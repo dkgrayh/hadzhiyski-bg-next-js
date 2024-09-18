@@ -3,9 +3,7 @@ import mongoose, { Connection } from 'mongoose';
 const MONGODB_URI = process.env.NEXT_PUBLIC_MONGODB_URI as string;
 
 if (!MONGODB_URI) {
-  throw new Error(
-    'Please define the MONGODB_URI environment variable inside .env.local'
-  );
+  throw new Error('Please define the MONGODB_URI environment variable');
 }
 
 let cachedConnection: Connection | null = null;
