@@ -1,6 +1,5 @@
-import mongoose, { Schema, model, models } from 'mongoose';
+import { Schema, model, models } from 'mongoose';
 
-// Define the Subscriber schema
 const subscriberSchema = new Schema({
   email: {
     type: String,
@@ -14,7 +13,6 @@ const subscriberSchema = new Schema({
   },
 });
 
-// Export the Subscriber model (reuse the model if already defined)
 const Subscriber = models.Subscriber || model('Subscriber', subscriberSchema);
 
 export default Subscriber;
