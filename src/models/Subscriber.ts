@@ -1,4 +1,4 @@
-import { Schema, model, models } from 'mongoose';
+import mongoose, { Schema, model, models } from 'mongoose';
 
 // Define the Subscriber schema
 const subscriberSchema = new Schema({
