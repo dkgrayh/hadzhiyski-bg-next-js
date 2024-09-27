@@ -13,7 +13,7 @@ const projects = [
     name: 'BoatEvents',
     description:
       'Application for creating and offering event events on boats anywhere in the world.',
-    link: { href: 'https://boat-events.boatparty.us/', label: 'boat-events' },
+    link: { href: 'https://boat-events.vercel.app/', label: 'boat-events' },
     logo: logoBoatEvents,
   },
   {
